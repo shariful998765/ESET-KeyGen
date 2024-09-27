@@ -20,7 +20,7 @@ on:
         - guerrillamail
         - developermail
         - mailticking
-        default: developermail
+        default: mailticking
       key_type:
         description: 'Modes of operation'
         required: true
