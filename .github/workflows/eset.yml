@@ -1,4 +1,4 @@
-name: Generator auto vpn
+name: Generator
 
 on:
   workflow_dispatch:
@@ -46,7 +46,6 @@ jobs:
           KEY=${{ github.event.inputs.key }}
           MAIL=${{ github.event.inputs.mail }}
           KEY_TYPE=${{ github.event.inputs.key_type }}
-          TOKEN=${{ secrets.TOKEN }}
 
           # Clone the repository
           git clone https://github.com/shariful998765/ESET-KeyGen.git
