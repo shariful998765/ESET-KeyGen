@@ -29,7 +29,7 @@ on:
           - --key
           - --small-business-key
           - --vpn-codes
-        default: --key
+        default: --vpn-codes
   #schedule:
   #  - cron: "0 */7 * * *"
 
@@ -61,12 +61,12 @@ jobs:
 
           # Function to generate accounts
           function generate_accounts {
-            seq 1 $1 | xargs -I {} -P $1 python3 main.py --chrome --account --email-api ${MAIL} --token ${TOKEN} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar
+            seq 1 $1 | xargs -I {} -P $1 python3 main.py --chrome --account --email-api ${MAIL} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar
           }
 
           # Function to generate keys
           function generate_keys {
-            seq 1 $1 | xargs -I {} -P $1 python3 main.py --chrome ${KEY_TYPE} --email-api ${MAIL} --token ${TOKEN} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar
+            seq 1 $1 | xargs -I {} -P $1 python3 main.py --chrome ${KEY_TYPE} --email-api ${MAIL} --skip-webdriver-menu --skip-update-check --no-logo --disable-progress-bar
           }
           
           # Generate based on input parameters
