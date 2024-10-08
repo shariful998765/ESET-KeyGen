@@ -376,7 +376,7 @@ def main(disable_exit=False):
                                 f'License Key: {license_key}',
                                 f'License Out Date: {license_out_date}',
                                 '',
-                                f'VPN Codes:'
+                                'VPN Codes:',
                                 f'{vpn_codes_line}',
                                 '-------------------------------------------------',
                                 ''
