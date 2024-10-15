@@ -53,7 +53,7 @@ args = {
     'skip_update_check': False,
     'no_logo': False,
     'disable_progress_bar': False,
-    'disable_output_file': False,
+    'disable_output_file': True,
     'repeat': 1
 }
 # -----------------------------------------------------------------------------------------------
@@ -340,35 +340,50 @@ def main(disable_exit=False):
                     EK_obj = EK(email_obj, driver, 'ESET HOME' if args['key'] else 'SMALL BUSINESS')
                     EK_obj.sendRequestForKey()
                     license_name, license_key, license_out_date = EK_obj.getLicenseData()
+                    pc_use = r"*💻 Pc or Laptop*: Use the key without connecting your account\!"
+                    important_note = ">❤️Give Reaction❤️"
+                    photo_path = 'img/essp.jpg'
+                    stay_tuned = "Stay Tuned"
+                    mention = "@FreeLicense4All"
                     output_line = '\n'.join([
                         '',
-                        '-------------------------------------------------',
-                        f'Account Email: {email_obj.email}',
-                        f'Account Password: {eset_password}',
+                        f'Email: `{email_obj.email}`',
+                        f'Password: `{eset_password}`',
                         '',
-                        f'License Name: {license_name}',
-                        f'License Key: {license_key}',
-                        f'License Out Date: {license_out_date}',
-                        '-------------------------------------------------',
+                        f'Product Name: ||{license_name}||',
+                        f'Exp: ||{license_out_date}||',
+                        f'Key: `{license_key}`',
                         ''
                     ])
+                    output_lines = '\n'.join([
+                        '',
+                        f'🟢 Product Name: {license_name}',
+                        f'🕐 Exp: ||{license_out_date}||',
+                        f'🔑 Key: `{license_key}`',
+                        ''
+                    ])
+                    print(output_line)
+                    full_message = f"{output_lines}\n{pc_use}\n\n\n{important_note}\n\n\n{stay_tuned}\n{mention}\n"
+                    print(full_message)
                     if args['vpn_codes']:
                         EV_obj = EV(email_obj, driver, ER_obj.window_handle)
                         EV_obj.sendRequestForVPNCodes()
                         vpn_codes = EV_obj.getVPNCodes()
                         if not args['custom_email_api']:
-                            vpn_codes_line = ', '.join(vpn_codes)
+                            vpn_codes_line = '\n\n'.join([f'Key: `{vpn_code}`' for vpn_code in vpn_codes])
                             output_line = '\n'.join([
                                 '',
                                 '-------------------------------------------------',
-                                f'Account Email: {email_obj.email}',
-                                f'Account Password: {eset_password}',
+                                f'Email: `{email_obj.email}`',
+                                f'Password: `{eset_password}`',
                                 '',
-                                f'License Name: {license_name}',
-                                f'License Key: {license_key}',
-                                f'License Out Date: {license_out_date}',
+                                f'Product Name: ||{license_name}||',
+                                f'Exp: ||{license_out_date}||',
+                                f'Key: `{license_key}`',
                                 '',
-                                f'VPN Codes: {vpn_codes_line}',
+                                'VPN Codes:',
+                                f'{vpn_codes_line}',
+                                '',
                                 '-------------------------------------------------',
                                 ''
                             ])
