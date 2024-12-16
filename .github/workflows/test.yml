@@ -1,4 +1,4 @@
-name: Generator
+name: Generator for bot
 
 on:
   workflow_dispatch:
