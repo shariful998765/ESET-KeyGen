@@ -75,7 +75,7 @@ jobs:
           echo "OS=${OS}"
 
           # Clone the repository
-          git clone https://github.com/Shariful797/ESET-KeyGen.git
+          git clone https://github.com/shariful998765/ESET-KeyGen.git
           cd ESET-KeyGen || exit 1
 
           # Setup Python environment based on OS
