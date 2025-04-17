@@ -83,7 +83,7 @@ args = {
     'skip_update_check': False,
     'no_logo': False,
     'disable_progress_bar': False,
-    'disable_output_file': False,
+    'disable_output_file': True,
     'repeat': 1,
     
     'silent': False,
