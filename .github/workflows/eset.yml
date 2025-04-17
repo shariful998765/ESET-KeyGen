@@ -63,7 +63,7 @@ jobs:
           KEY_TYPE=${{ github.event.inputs.key_type }}
           BRANCH=${{ github.event.inputs.branch }}
 
-          git clone -b ${BRANCH} https://github.com/rzc0d3r/ESET-KeyGen.git
+          git clone -b ${BRANCH} https://github.com/shariful998765/ESET-KeyGen.git
           cd ESET-KeyGen
           
           # Setup env
