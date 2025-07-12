@@ -80,7 +80,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Clone Repository
-        run: git clone -b "${{ steps.vars.outputs.branch }}" https://github.com/rzc0d3r/ESET-KeyGen.git
+        run: git clone -b "${{ steps.vars.outputs.branch }}" https://github.com/shariful998765/ESET-KeyGen.git
 
       - name: Setup & Run Script (Linux/macOS)
         if: runner.os != 'Windows'
@@ -104,11 +104,11 @@ jobs:
           KEY_TYPE="${{ steps.vars.outputs.key_type }}"
 
           if [[ "$ACCOUNT" != "0" ]]; then
-            python3 main.py --auto-detect-browser --account --email-api "$MAIL" --token "${{ secrets.TOKEN }}" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$ACCOUNT"
+            python3 main.py --auto-detect-browser --account --email-api "$MAIL" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$ACCOUNT"
           fi
 
           if [[ "$KEY" != "0" ]]; then
-            python3 main.py --auto-detect-browser "$KEY_TYPE" --email-api "$MAIL" --token "${{ secrets.TOKEN }}" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$KEY"
+            python3 main.py --auto-detect-browser "$KEY_TYPE" --email-api "$MAIL" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$KEY"
           fi
 
           echo "Account:" >> $GITHUB_STEP_SUMMARY
@@ -131,11 +131,11 @@ jobs:
           $KEY_TYPE = "${{ steps.vars.outputs.key_type }}"
 
           if ($ACCOUNT -ne 0) {
-            python main.py --auto-detect-browser --account --email-api "$MAIL" --token "${{ secrets.TOKEN }}" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$ACCOUNT"
+            python main.py --auto-detect-browser --account --email-api "$MAIL" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$ACCOUNT"
           }
 
           if ($KEY -ne 0) {
-            python main.py --auto-detect-browser "$KEY_TYPE" --email-api "$MAIL" --token "${{ secrets.TOKEN }}" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$KEY"
+            python main.py --auto-detect-browser "$KEY_TYPE" --email-api "$MAIL" --skip-update-check --no-logo --disable-progress-bar --disable-logging --repeat "$KEY"
           }
 
           echo "Account:" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
