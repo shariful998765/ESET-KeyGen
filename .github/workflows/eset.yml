@@ -61,6 +61,7 @@ jobs:
     steps:
       - name: Set Variables
         id: vars
+        shell: bash  # ✅ Important to force Bash even on Windows
         run: |
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "account=${{ github.event.inputs.account }}" >> $GITHUB_OUTPUT
