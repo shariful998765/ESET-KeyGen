@@ -1,4 +1,4 @@
-name: Auto Home Key Generator
+name: Account and Key Generator
 
 on:
   schedule:
@@ -56,7 +56,7 @@ on:
         default: main
 
 jobs:
-  generate:
+  generate-account-and-key:
     runs-on: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.os || 'windows-latest' }}
     steps:
       - name: Set Variables
